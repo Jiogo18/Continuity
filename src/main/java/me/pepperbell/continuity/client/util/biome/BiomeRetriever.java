@@ -4,7 +4,6 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 
-import grondag.canvas.terrain.region.input.InputRegion;
 import me.jellysquid.mods.sodium.client.world.WorldSlice;
 import me.pepperbell.continuity.client.mixinterface.ChunkRendererRegionExtension;
 import net.fabricmc.loader.api.FabricLoader;
@@ -18,6 +17,7 @@ public final class BiomeRetriever {
 	private static final Provider PROVIDER = createProvider();
 
 	private static Provider createProvider() {
+		/*
 		ClassLoader classLoader = BiomeRetriever.class.getClassLoader();
 
 		if (FabricLoader.getInstance().isModLoaded("sodium")) {
@@ -45,6 +45,8 @@ public final class BiomeRetriever {
 		if (ArrayUtils.contains(ChunkRendererRegion.class.getInterfaces(), ChunkRendererRegionExtension.class)) {
 			return BiomeRetriever::getBiomeByExtension;
 		}
+
+ 		*/
 		return BiomeRetriever::getBiomeByWorldView;
 	}
 
@@ -76,16 +78,19 @@ public final class BiomeRetriever {
 	}
 
 	// Sodium
+	/*
 	@Nullable
 	private static Biome getBiomeByWorldSlice(BlockRenderView blockView, BlockPos pos) {
 		if (blockView instanceof WorldSlice) {
 			WorldSlice worldSlice = (WorldSlice) blockView;
-			return worldSlice.getBiomeAccess().getBiome(pos);
+			return worldSlice.getBiome(pos);
 		}
 		return getBiomeByWorldView(blockView, pos);
 	}
+	 */
 
 	// Canvas
+	/*
 	@Nullable
 	private static Biome getBiomeByInputRegion(BlockRenderView blockView, BlockPos pos) {
 		if (blockView instanceof InputRegion) {
@@ -94,6 +99,7 @@ public final class BiomeRetriever {
 		}
 		return getBiomeByWorldView(blockView, pos);
 	}
+	 */
 
 	private interface Provider {
 		@Nullable
