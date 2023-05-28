@@ -59,7 +59,8 @@ public final class BiomeRetriever {
 
 	@Nullable
 	private static Biome getBiomeByWorldView(BlockRenderView blockView, BlockPos pos) {
-		if (blockView instanceof WorldView worldView) {
+		if (blockView instanceof WorldView) {
+			WorldView worldView = (WorldView) blockView;
 			return worldView.getBiome(pos);
 		}
 		return null;
@@ -67,8 +68,9 @@ public final class BiomeRetriever {
 
 	@Nullable
 	private static Biome getBiomeByExtension(BlockRenderView blockView, BlockPos pos) {
-		if (blockView instanceof ChunkRendererRegionExtension extension) {
-			return extension.continuity$getBiome(pos).value();
+		if (blockView instanceof ChunkRendererRegionExtension) {
+			ChunkRendererRegionExtension extension = (ChunkRendererRegionExtension) blockView;
+			return extension.continuity$getBiome(pos);
 		}
 		return getBiomeByWorldView(blockView, pos);
 	}
@@ -76,7 +78,8 @@ public final class BiomeRetriever {
 	// Sodium
 	@Nullable
 	private static Biome getBiomeByWorldSlice(BlockRenderView blockView, BlockPos pos) {
-		if (blockView instanceof WorldSlice worldSlice) {
+		if (blockView instanceof WorldSlice) {
+			WorldSlice worldSlice = (WorldSlice) blockView;
 			return worldSlice.getBiomeAccess().getBiome(pos);
 		}
 		return getBiomeByWorldView(blockView, pos);
@@ -85,7 +88,8 @@ public final class BiomeRetriever {
 	// Canvas
 	@Nullable
 	private static Biome getBiomeByInputRegion(BlockRenderView blockView, BlockPos pos) {
-		if (blockView instanceof InputRegion inputRegion) {
+		if (blockView instanceof InputRegion) {
+			InputRegion inputRegion = (InputRegion) blockView;
 			return inputRegion.getBiome(pos);
 		}
 		return getBiomeByWorldView(blockView, pos);

@@ -29,6 +29,7 @@
   "mixins": [
     "continuity.mixins.json"
   ],
+  "accessWidener": "continuity.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.11.7",

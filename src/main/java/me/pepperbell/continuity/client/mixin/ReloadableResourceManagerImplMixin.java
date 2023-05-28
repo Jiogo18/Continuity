@@ -1,7 +1,8 @@
 package me.pepperbell.continuity.client.mixin;
 
-import java.util.List;
+//import java.util.List;
 
+import net.minecraft.resource.ReloadableResourceManagerImpl;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -10,15 +11,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import me.pepperbell.continuity.client.mixinterface.LifecycledResourceManagerImplExtension;
+import me.pepperbell.continuity.client.mixinterface.ReloadableResourceManagerImplExtension;
 import me.pepperbell.continuity.client.resource.ResourceRedirectHandler;
-import net.minecraft.resource.LifecycledResourceManagerImpl;
-import net.minecraft.resource.ResourcePack;
+//import net.minecraft.resource.LifecycledResourceManagerImpl;
+//import net.minecraft.resource.ResourcePack;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
 
-@Mixin(LifecycledResourceManagerImpl.class)
-public class LifecycledResourceManagerImplMixin implements LifecycledResourceManagerImplExtension {
+@Mixin(ReloadableResourceManagerImpl.class)
+public class ReloadableResourceManagerImplMixin implements ReloadableResourceManagerImplExtension {
 	@Unique
 	private ResourceRedirectHandler continuity$redirectHandler;
 
@@ -28,8 +29,8 @@ public class LifecycledResourceManagerImplMixin implements LifecycledResourceMan
 		return continuity$redirectHandler;
 	}
 
-	@Inject(method = "<init>(Lnet/minecraft/resource/ResourceType;Ljava/util/List;)V", at = @At("TAIL"))
-	private void continuity$onTailInit(ResourceType type, List<ResourcePack> packs, CallbackInfo ci) {
+	@Inject(method = "<init>(Lnet/minecraft/resource/ResourceType;)V", at = @At("TAIL"))
+	private void continuity$onTailInit(ResourceType type, CallbackInfo ci) {
 		if (type == ResourceType.CLIENT_RESOURCES) {
 			continuity$redirectHandler = new ResourceRedirectHandler();
 		}

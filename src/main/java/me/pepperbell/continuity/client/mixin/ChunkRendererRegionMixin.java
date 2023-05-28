@@ -1,6 +1,6 @@
 package me.pepperbell.continuity.client.mixin;
 
-import net.minecraft.util.registry.RegistryKey;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -19,7 +19,7 @@ public class ChunkRendererRegionMixin implements ChunkRendererRegionExtension {
 	protected World world;
 
 	@Override
-	public RegistryKey<Biome> continuity$getBiome(BlockPos pos) {
+	public @Nullable Biome continuity$getBiome(BlockPos pos) {
 		return world.getBiome(pos);
 	}
 }

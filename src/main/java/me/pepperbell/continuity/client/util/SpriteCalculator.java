@@ -37,7 +37,7 @@ public final class SpriteCalculator {
 		try {
 			List<BakedQuad> quads = model.getQuads(state, face, randomSupplier.get());
 			if (!quads.isEmpty()) {
-				return quads.get(0).getSprite();
+				return quads.get(0).sprite;
 			}
 			quads = model.getQuads(state, null, randomSupplier.get());
 			if (!quads.isEmpty()) {
@@ -45,14 +45,14 @@ public final class SpriteCalculator {
 				for (int i = 0; i < amount; i++) {
 					BakedQuad quad = quads.get(i);
 					if (quad.getFace() == face) {
-						return quad.getSprite();
+						return quad.sprite;
 					}
 				}
 			}
 		} catch (Exception e) {
 			//
 		}
-		return model.getParticleSprite();
+		return model.getSprite();
 	}
 
 	@ApiStatus.Internal
@@ -65,7 +65,7 @@ public final class SpriteCalculator {
 	private static class SpriteCache {
 		private final Direction face;
 		private final Map<BlockState, Sprite> sprites = new Object2ObjectOpenHashMap<>();
-		private final Supplier<Random> randomSupplier = new Supplier<>() {
+		private final Supplier<Random> randomSupplier = new Supplier<Random>() {
 			private final Random random = new Random();
 
 			@Override

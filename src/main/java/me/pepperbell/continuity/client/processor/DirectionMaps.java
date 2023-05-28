@@ -1,5 +1,6 @@
 package me.pepperbell.continuity.client.processor;
 
+import me.pepperbell.continuity.client.util.DirectionUtil;
 import org.apache.commons.lang3.ArrayUtils;
 
 import me.pepperbell.continuity.client.util.QuadUtil;
@@ -21,11 +22,11 @@ public final class DirectionMaps {
 
 			Direction textureLeft;
 			if (face.getDirection() == Direction.AxisDirection.NEGATIVE) {
-				//textureLeft = textureUp.rotateClockwise(face.getAxis());
-				textureLeft = textureUp.rotateYClockwise();
+				textureLeft = DirectionUtil.rotateClockwise(face.getAxis());
+				//textureLeft = textureUp.rotateYClockwise();
 			} else {
-				//textureLeft = textureUp.rotateCounterclockwise(face.getAxis());
-				textureLeft = textureUp.rotateYCounterclockwise();
+				textureLeft = DirectionUtil.rotateCounterclockwise(face.getAxis());
+				//textureLeft = textureUp.rotateYCounterclockwise();
 			}
 
 			Direction[][] map = DIRECTION_MAPS[face.ordinal()];

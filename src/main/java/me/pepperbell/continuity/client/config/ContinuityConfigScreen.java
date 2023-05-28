@@ -20,11 +20,11 @@ public class ContinuityConfigScreen extends Screen {
 
 	@Override
 	protected void init() {
-		addDrawableChild(createBooleanOptionButton(width / 2 - 100 - 110, height / 2 - 10 - 12, 200, 20, config.connectedTextures));
-		addDrawableChild(createBooleanOptionButton(width / 2 - 100 + 110, height / 2 - 10 - 12, 200, 20, config.emissiveTextures));
-		addDrawableChild(createBooleanOptionButton(width / 2 - 100 - 110, height / 2 - 10 + 12, 200, 20, config.customBlockLayers));
+		addButton(createBooleanOptionButton(width / 2 - 100 - 110, height / 2 - 10 - 12, 200, 20, config.connectedTextures));
+		addButton(createBooleanOptionButton(width / 2 - 100 + 110, height / 2 - 10 - 12, 200, 20, config.emissiveTextures));
+		addButton(createBooleanOptionButton(width / 2 - 100 - 110, height / 2 - 10 + 12, 200, 20, config.customBlockLayers));
 
-		addDrawableChild(new ButtonWidget(width / 2 - 100, height - 40, 200, 20, ScreenTexts.DONE, button -> close()));
+		addButton(new ButtonWidget(width / 2 - 100, height - 40, 200, 20, ScreenTexts.DONE, button -> onClose()));
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class ContinuityConfigScreen extends Screen {
 	}
 
 	@Override
-	public void close() {
-		client.setScreen(parent);
+	public void onClose() {
+		client.openScreen(parent);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
+import me.pepperbell.continuity.client.util.DirectionUtil;
 import org.jetbrains.annotations.Nullable;
 
 import me.pepperbell.continuity.api.client.ProcessingDataProvider;
@@ -54,9 +55,9 @@ public class BaseProcessingPredicate implements ProcessingPredicate {
  			if (state.contains(Properties.AXIS)) {
  				Direction.Axis axis = state.get(Properties.AXIS);
  				if (axis == Direction.Axis.X) {
- 					face = face.rotateClockwise(Direction.Axis.Z);
+ 					face = DirectionUtil.rotateClockwise(Direction.Axis.Z);
 				} else if (axis == Direction.Axis.Z) {
-					face = face.rotateCounterclockwise(Direction.Axis.X);
+					face = DirectionUtil.rotateCounterclockwise(Direction.Axis.X);
 				}
 			}
 			if (!faces.contains(face)) {
@@ -108,7 +109,8 @@ public class BaseProcessingPredicate implements ProcessingPredicate {
 		public String get(BlockRenderView blockView, BlockPos pos) {
 			if (invalid) {
 				BlockEntity blockEntity = blockView.getBlockEntity(pos);
-				if (blockEntity instanceof Nameable nameable) {
+				if (blockEntity instanceof Nameable) {
+					Nameable nameable = (Nameable) blockEntity;
 					if (nameable.hasCustomName()) {
 						blockEntityName = nameable.getCustomName().asString();
 					} else {

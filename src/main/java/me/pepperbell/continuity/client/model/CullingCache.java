@@ -17,7 +17,8 @@ public class CullingCache {
 		int mask = 1 << cullFace.ordinal();
 		if ((completionFlags & mask) == 0) {
 			completionFlags |= mask;
-			if (Block.shouldDrawSide(state, blockView, pos, cullFace, mutablePos.set(pos, cullFace))) {
+			//if (Block.shouldDrawSide(state, blockView, pos, cullFace, mutablePos.set(pos, cullFace))) {
+			if (Block.shouldDrawSide(state, blockView, pos, cullFace)) {
 				resultFlags |= mask;
 				return false;
 			} else {
