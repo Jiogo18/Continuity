@@ -84,14 +84,14 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 		//
 
 		// UVs normalized to the sprite dimensions and centered at the middle of the sprite
-		float un0 = MathHelper.getLerpProgress(quad.spriteU(0, 0), sprite.getMinU(), sprite.getMaxU()) - 0.5f;
-		float vn0 = MathHelper.getLerpProgress(quad.spriteV(0, 0), sprite.getMinV(), sprite.getMaxV()) - 0.5f;
-		float un1 = MathHelper.getLerpProgress(quad.spriteU(1, 0), sprite.getMinU(), sprite.getMaxU()) - 0.5f;
-		float vn1 = MathHelper.getLerpProgress(quad.spriteV(1, 0), sprite.getMinV(), sprite.getMaxV()) - 0.5f;
-		float un2 = MathHelper.getLerpProgress(quad.spriteU(2, 0), sprite.getMinU(), sprite.getMaxU()) - 0.5f;
-		float vn2 = MathHelper.getLerpProgress(quad.spriteV(2, 0), sprite.getMinV(), sprite.getMaxV()) - 0.5f;
-		float un3 = MathHelper.getLerpProgress(quad.spriteU(3, 0), sprite.getMinU(), sprite.getMaxU()) - 0.5f;
-		float vn3 = MathHelper.getLerpProgress(quad.spriteV(3, 0), sprite.getMinV(), sprite.getMaxV()) - 0.5f;
+		float un0 = (float) (MathHelper.getLerpProgress(quad.spriteU(0, 0), sprite.getMinU(), sprite.getMaxU()) - 0.5f);
+		float vn0 = (float) (MathHelper.getLerpProgress(quad.spriteV(0, 0), sprite.getMinV(), sprite.getMaxV()) - 0.5f);
+		float un1 = (float) (MathHelper.getLerpProgress(quad.spriteU(1, 0), sprite.getMinU(), sprite.getMaxU()) - 0.5f);
+		float vn1 = (float) (MathHelper.getLerpProgress(quad.spriteV(1, 0), sprite.getMinV(), sprite.getMaxV()) - 0.5f);
+		float un2 = (float) (MathHelper.getLerpProgress(quad.spriteU(2, 0), sprite.getMinU(), sprite.getMaxU()) - 0.5f);
+		float vn2 = (float) (MathHelper.getLerpProgress(quad.spriteV(2, 0), sprite.getMinV(), sprite.getMaxV()) - 0.5f);
+		float un3 = (float) (MathHelper.getLerpProgress(quad.spriteU(3, 0), sprite.getMinU(), sprite.getMaxU()) - 0.5f);
+		float vn3 = (float) (MathHelper.getLerpProgress(quad.spriteV(3, 0), sprite.getMinV(), sprite.getMaxV()) - 0.5f);
 
 		// Signums representing which side of the splitting line the U or V coordinate lies on
 		int uSignum0 = (int) Math.signum(un0);
@@ -164,17 +164,17 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 				float delta30;
 				float delta4;
 				if (uSplit01) {
-					delta01 = MathHelper.getLerpProgress(0, un0, un1);
-					delta23 = MathHelper.getLerpProgress(0, un2, un3);
-					delta12 = MathHelper.getLerpProgress(0, vn1, vn2);
-					delta30 = MathHelper.getLerpProgress(0, vn3, vn0);
-					delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, vn0, vn1), MathHelper.lerp(delta23, vn2, vn3));
+					delta01 = (float) MathHelper.getLerpProgress(0, un0, un1);
+					delta23 = (float) MathHelper.getLerpProgress(0, un2, un3);
+					delta12 = (float) MathHelper.getLerpProgress(0, vn1, vn2);
+					delta30 = (float) MathHelper.getLerpProgress(0, vn3, vn0);
+					delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, vn0, vn1), MathHelper.lerp(delta23, vn2, vn3));
 				} else {
-					delta01 = MathHelper.getLerpProgress(0, vn0, vn1);
-					delta23 = MathHelper.getLerpProgress(0, vn2, vn3);
-					delta12 = MathHelper.getLerpProgress(0, un1, un2);
-					delta30 = MathHelper.getLerpProgress(0, un3, un0);
-					delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, un0, un1), MathHelper.lerp(delta23, un2, un3));
+					delta01 = (float) MathHelper.getLerpProgress(0, vn0, vn1);
+					delta23 = (float) MathHelper.getLerpProgress(0, vn2, vn3);
+					delta12 = (float) MathHelper.getLerpProgress(0, un1, un2);
+					delta30 = (float) MathHelper.getLerpProgress(0, un3, un0);
+					delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, un0, un1), MathHelper.lerp(delta23, un2, un3));
 				}
 
 				vertexContainer.vertex01.setLerped(delta01, vertexContainer.vertex0, vertexContainer.vertex1);
@@ -204,11 +204,11 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 						float delta01;
 						float delta23;
 						if (uSplit01) {
-							delta01 = MathHelper.getLerpProgress(0, un0, un1);
-							delta23 = MathHelper.getLerpProgress(0, un2, un3);
+							delta01 = (float) MathHelper.getLerpProgress(0, un0, un1);
+							delta23 = (float) MathHelper.getLerpProgress(0, un2, un3);
 						} else {
-							delta01 = MathHelper.getLerpProgress(0, vn0, vn1);
-							delta23 = MathHelper.getLerpProgress(0, vn2, vn3);
+							delta01 = (float) MathHelper.getLerpProgress(0, vn0, vn1);
+							delta23 = (float) MathHelper.getLerpProgress(0, vn2, vn3);
 						}
 
 						vertexContainer.vertex01.setLerped(delta01, vertexContainer.vertex0, vertexContainer.vertex1);
@@ -220,11 +220,11 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 						float delta12;
 						float delta30;
 						if (uSplit01) {
-							delta12 = MathHelper.getLerpProgress(0, vn1, vn2);
-							delta30 = MathHelper.getLerpProgress(0, vn3, vn0);
+							delta12 = (float) MathHelper.getLerpProgress(0, vn1, vn2);
+							delta30 = (float) MathHelper.getLerpProgress(0, vn3, vn0);
 						} else {
-							delta12 = MathHelper.getLerpProgress(0, un1, un2);
-							delta30 = MathHelper.getLerpProgress(0, un3, un0);
+							delta12 = (float) MathHelper.getLerpProgress(0, un1, un2);
+							delta30 = (float) MathHelper.getLerpProgress(0, un3, un0);
 						}
 
 						vertexContainer.vertex12.setLerped(delta12, vertexContainer.vertex1, vertexContainer.vertex2);
@@ -240,15 +240,15 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 						float delta30;
 						float delta4;
 						if (uSplit01) {
-							delta23 = MathHelper.getLerpProgress(0, un2, un3);
-							delta12 = MathHelper.getLerpProgress(0, vn1, vn2);
-							delta30 = MathHelper.getLerpProgress(0, vn3, vn0);
-							delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta12, un1, un2), MathHelper.lerp(delta30, un3, un0));
+							delta23 = (float) MathHelper.getLerpProgress(0, un2, un3);
+							delta12 = (float) MathHelper.getLerpProgress(0, vn1, vn2);
+							delta30 = (float) MathHelper.getLerpProgress(0, vn3, vn0);
+							delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta12, un1, un2), MathHelper.lerp(delta30, un3, un0));
 						} else {
-							delta23 = MathHelper.getLerpProgress(0, vn2, vn3);
-							delta12 = MathHelper.getLerpProgress(0, un1, un2);
-							delta30 = MathHelper.getLerpProgress(0, un3, un0);
-							delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta12, vn1, vn2), MathHelper.lerp(delta30, vn3, vn0));
+							delta23 = (float) MathHelper.getLerpProgress(0, vn2, vn3);
+							delta12 = (float) MathHelper.getLerpProgress(0, un1, un2);
+							delta30 = (float) MathHelper.getLerpProgress(0, un3, un0);
+							delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta12, vn1, vn2), MathHelper.lerp(delta30, vn3, vn0));
 						}
 
 						vertexContainer.vertex23.setLerped(delta23, vertexContainer.vertex2, vertexContainer.vertex3);
@@ -265,15 +265,15 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 						float delta30;
 						float delta4;
 						if (uSplit01) {
-							delta01 = MathHelper.getLerpProgress(0, un0, un1);
-							delta23 = MathHelper.getLerpProgress(0, un2, un3);
-							delta30 = MathHelper.getLerpProgress(0, vn3, vn0);
-							delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, vn0, vn1), MathHelper.lerp(delta23, vn2, vn3));
+							delta01 = (float) MathHelper.getLerpProgress(0, un0, un1);
+							delta23 = (float) MathHelper.getLerpProgress(0, un2, un3);
+							delta30 = (float) MathHelper.getLerpProgress(0, vn3, vn0);
+							delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, vn0, vn1), MathHelper.lerp(delta23, vn2, vn3));
 						} else {
-							delta01 = MathHelper.getLerpProgress(0, vn0, vn1);
-							delta23 = MathHelper.getLerpProgress(0, vn2, vn3);
-							delta30 = MathHelper.getLerpProgress(0, un3, un0);
-							delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, un0, un1), MathHelper.lerp(delta23, un2, un3));
+							delta01 = (float) MathHelper.getLerpProgress(0, vn0, vn1);
+							delta23 = (float) MathHelper.getLerpProgress(0, vn2, vn3);
+							delta30 = (float) MathHelper.getLerpProgress(0, un3, un0);
+							delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, un0, un1), MathHelper.lerp(delta23, un2, un3));
 						}
 
 						vertexContainer.vertex01.setLerped(delta01, vertexContainer.vertex0, vertexContainer.vertex1);
@@ -290,15 +290,15 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 						float delta30;
 						float delta4;
 						if (uSplit01) {
-							delta01 = MathHelper.getLerpProgress(0, un0, un1);
-							delta12 = MathHelper.getLerpProgress(0, vn1, vn2);
-							delta30 = MathHelper.getLerpProgress(0, vn3, vn0);
-							delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta12, un1, un2), MathHelper.lerp(delta30, un3, un0));
+							delta01 = (float) MathHelper.getLerpProgress(0, un0, un1);
+							delta12 = (float) MathHelper.getLerpProgress(0, vn1, vn2);
+							delta30 = (float) MathHelper.getLerpProgress(0, vn3, vn0);
+							delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta12, un1, un2), MathHelper.lerp(delta30, un3, un0));
 						} else {
-							delta01 = MathHelper.getLerpProgress(0, vn0, vn1);
-							delta12 = MathHelper.getLerpProgress(0, un1, un2);
-							delta30 = MathHelper.getLerpProgress(0, un3, un0);
-							delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta12, vn1, vn2), MathHelper.lerp(delta30, vn3, vn0));
+							delta01 = (float) MathHelper.getLerpProgress(0, vn0, vn1);
+							delta12 = (float) MathHelper.getLerpProgress(0, un1, un2);
+							delta30 = (float) MathHelper.getLerpProgress(0, un3, un0);
+							delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta12, vn1, vn2), MathHelper.lerp(delta30, vn3, vn0));
 						}
 
 						vertexContainer.vertex01.setLerped(delta01, vertexContainer.vertex0, vertexContainer.vertex1);
@@ -315,15 +315,15 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 						float delta12;
 						float delta4;
 						if (uSplit01) {
-							delta01 = MathHelper.getLerpProgress(0, un0, un1);
-							delta23 = MathHelper.getLerpProgress(0, un2, un3);
-							delta12 = MathHelper.getLerpProgress(0, vn1, vn2);
-							delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, vn0, vn1), MathHelper.lerp(delta23, vn2, vn3));
+							delta01 = (float) MathHelper.getLerpProgress(0, un0, un1);
+							delta23 = (float) MathHelper.getLerpProgress(0, un2, un3);
+							delta12 = (float) MathHelper.getLerpProgress(0, vn1, vn2);
+							delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, vn0, vn1), MathHelper.lerp(delta23, vn2, vn3));
 						} else {
-							delta01 = MathHelper.getLerpProgress(0, vn0, vn1);
-							delta23 = MathHelper.getLerpProgress(0, vn2, vn3);
-							delta12 = MathHelper.getLerpProgress(0, un1, un2);
-							delta4 = MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, un0, un1), MathHelper.lerp(delta23, un2, un3));
+							delta01 = (float) MathHelper.getLerpProgress(0, vn0, vn1);
+							delta23 = (float) MathHelper.getLerpProgress(0, vn2, vn3);
+							delta12 = (float) MathHelper.getLerpProgress(0, un1, un2);
+							delta4 = (float) MathHelper.getLerpProgress(0, MathHelper.lerp(delta01, un0, un1), MathHelper.lerp(delta23, un2, un3));
 						}
 
 						vertexContainer.vertex01.setLerped(delta01, vertexContainer.vertex0, vertexContainer.vertex1);
@@ -389,11 +389,11 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 				float delta01;
 				float delta23;
 				if (uSplit) {
-					delta01 = MathHelper.getLerpProgress(0, un0, un1);
-					delta23 = MathHelper.getLerpProgress(0, un2, un3);
+					delta01 = (float) MathHelper.getLerpProgress(0, un0, un1);
+					delta23 = (float) MathHelper.getLerpProgress(0, un2, un3);
 				} else {
-					delta01 = MathHelper.getLerpProgress(0, vn0, vn1);
-					delta23 = MathHelper.getLerpProgress(0, vn2, vn3);
+					delta01 = (float) MathHelper.getLerpProgress(0, vn0, vn1);
+					delta23 = (float) MathHelper.getLerpProgress(0, vn2, vn3);
 				}
 
 				vertexContainer.vertex01.setLerped(delta01, vertexContainer.vertex0, vertexContainer.vertex1);
@@ -405,11 +405,11 @@ public class CompactCTMQuadProcessor extends ConnectingQuadProcessor {
 				float delta12;
 				float delta30;
 				if (uSplit) {
-					delta12 = MathHelper.getLerpProgress(0, un1, un2);
-					delta30 = MathHelper.getLerpProgress(0, un3, un0);
+					delta12 = (float) MathHelper.getLerpProgress(0, un1, un2);
+					delta30 = (float) MathHelper.getLerpProgress(0, un3, un0);
 				} else {
-					delta12 = MathHelper.getLerpProgress(0, vn1, vn2);
-					delta30 = MathHelper.getLerpProgress(0, vn3, vn0);
+					delta12 = (float) MathHelper.getLerpProgress(0, vn1, vn2);
+					delta30 = (float) MathHelper.getLerpProgress(0, vn3, vn0);
 				}
 
 				vertexContainer.vertex12.setLerped(delta12, vertexContainer.vertex1, vertexContainer.vertex2);

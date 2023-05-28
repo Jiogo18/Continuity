@@ -54,7 +54,7 @@ public class ModelLoaderMixin {
 		CTMPropertiesLoader.loadAll(resourceManager);
 	}
 
-	@Inject(method = "method_4716(Lnet/minecraft/block/BlockState;)V", at = @At("HEAD"))
+	@Inject(at = @At("HEAD"), method = "method_4716(Lnet/minecraft/block/BlockState;)V")
 	private void continuity$onAddBlockStateModel(BlockState state, CallbackInfo ci) {
 		continuity$currentBlockState = state;
 	}

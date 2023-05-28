@@ -157,7 +157,7 @@ public final class PropertiesParsingHelper {
 													}
 
 													ImmutableList<Comparable<?>> valueList = valueListBuilder.build();
-													Comparable<?>[] valueArray = valueList.toArray(Comparable<?>[]::new);
+													Comparable<?>[] valueArray = valueList.toArray(new Comparable<?>[0]);
 													propertyMapBuilder.put(property, valueArray);
 												}
 											} else {
@@ -173,7 +173,7 @@ public final class PropertiesParsingHelper {
 
 								ImmutableMap<Property<?>, Comparable<?>[]> propertyMap = propertyMapBuilder.build();
 								if (!propertyMap.isEmpty()) {
-									Map.Entry<Property<?>, Comparable<?>[]>[] propertyMapEntryArray = propertyMap.entrySet().toArray((IntFunction<Map.Entry<Property<?>, Comparable<?>[]>[]>) Map.Entry[]::new);
+									Map.Entry<Property<?>, Comparable<?>[]>[] propertyMapEntryArray = propertyMap.entrySet().stream().toArray((IntFunction<Map.Entry<Property<?>, Comparable<?>[]>[]>) Map.Entry[]::new);
 									predicateListBuilder.add(state -> {
 										if (state.getBlock() == block) {
 											Outer:
@@ -204,7 +204,7 @@ public final class PropertiesParsingHelper {
 
 			ImmutableList<Predicate<BlockState>> predicateList = predicateListBuilder.build();
 			if (!predicateList.isEmpty()) {
-				Predicate<BlockState>[] predicateArray = predicateList.toArray((IntFunction<Predicate<BlockState>[]>) Predicate[]::new);
+				Predicate<BlockState>[] predicateArray = predicateList.stream().toArray((IntFunction<Predicate<BlockState>[]>) Predicate[]::new);
 				return state -> {
 					for (Predicate<BlockState> predicate : predicateArray) {
 						if (predicate.test(state)) {
