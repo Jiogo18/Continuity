@@ -32,17 +32,9 @@
   "accessWidener": "continuity.accesswidener",
 
   "depends": {
-    "fabricloader": ">=0.11.7",
-    "fabric": ">=0.58.0",
-    "minecraft": "1.18.x",
-    "java": ">=17"
-  },
-
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/7rnTYXu"
-      }
-    }
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "1.16.5",
+    "java": ">=8"
   }
 }
