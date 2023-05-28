@@ -49,7 +49,8 @@ public final class ModelWrappingHandler {
 
 		modelsToBake.forEach((id, model) -> {
 			// Only wrap final block state models
-			if (id instanceof ModelIdentifier modelId && isBlockStateModelId(modelId)) {
+			if (id instanceof ModelIdentifier && isBlockStateModelId((ModelIdentifier) id)) {
+				ModelIdentifier modelId = (ModelIdentifier) id;
 				Collection<SpriteIdentifier> dependencies;
 				try {
 					dependencies = model.getTextureDependencies(unbakedModelGetter, voidSet);

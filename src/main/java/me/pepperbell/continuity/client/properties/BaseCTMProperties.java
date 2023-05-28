@@ -119,7 +119,8 @@ public class BaseCTMProperties implements CTMProperties {
 	 */
 	@Override
 	public int compareTo(@NotNull CTMProperties o) {
-		if (o instanceof BaseCTMProperties o1) {
+		if (o instanceof BaseCTMProperties) {
+			BaseCTMProperties o1 = (BaseCTMProperties) o;
 			if (prioritized && !o1.prioritized) {
 				return 1;
 			}
@@ -350,7 +351,7 @@ public class BaseCTMProperties implements CTMProperties {
 
 				ImmutableSet<BiomeHolder> biomeSet = biomeSetBuilder.build();
 				if (!biomeSet.isEmpty()) {
-					BiomeHolder[] biomeArray = biomeSet.toArray(BiomeHolder[]::new);
+					BiomeHolder[] biomeArray = biomeSet.toArray(new BiomeHolder[0]);
 					biomePredicate = biome -> {
 						for (BiomeHolder holder : biomeArray) {
 							if (holder.getBiome() == biome) {
@@ -447,7 +448,7 @@ public class BaseCTMProperties implements CTMProperties {
 
 			ImmutableList<IntPredicate> predicateList = predicateListBuilder.build();
 			if (!predicateList.isEmpty()) {
-				IntPredicate[] predicateArray = predicateList.toArray(IntPredicate[]::new);
+				IntPredicate[] predicateArray = predicateList.toArray(new IntPredicate[0]);
 				heightPredicate = y -> {
 					for (IntPredicate predicate : predicateArray) {
 						if (predicate.test(y)) {

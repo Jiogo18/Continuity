@@ -1,13 +1,12 @@
 package me.pepperbell.continuity.client.util;
 
-import java.lang.reflect.Field;
+//import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.jetbrains.annotations.ApiStatus;
 
-import io.vram.frex.api.material.MaterialConstants;
-import io.vram.frex.fabric.compat.FabricQuadView;
 import me.pepperbell.continuity.client.ContinuityClient;
 import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
 import net.fabricmc.fabric.api.renderer.v1.material.BlendMode;
@@ -42,6 +41,7 @@ public final class RenderUtil {
 	private static SpriteFinder blockAtlasSpriteFinder;
 
 	private static BlendModeGetter createBlendModeGetter() {
+		/*
 		if (FabricLoader.getInstance().isModLoaded("frex")) {
 			try {
 				Field frexQuadField = FabricQuadView.class.getDeclaredField("wrapped");
@@ -74,7 +74,9 @@ public final class RenderUtil {
 			} catch (Exception e) {
 				ContinuityClient.LOGGER.error("Detected FREX but failed to load quad wrapper field", e);
 			}
-		} else if (FabricLoader.getInstance().isModLoaded("indium")) {
+		} else
+		 */
+		if (FabricLoader.getInstance().isModLoaded("indium")) {
 			return quad -> ((link.infra.indium.renderer.RenderMaterialImpl) quad.material()).blendMode(0);
 		} else if (RendererAccess.INSTANCE.getRenderer() instanceof IndigoRenderer) {
 			return quad -> ((RenderMaterialImpl) quad.material()).blendMode(0);
@@ -107,7 +109,13 @@ public final class RenderUtil {
 
 	public static class ReloadListener implements SimpleSynchronousResourceReloadListener {
 		public static final Identifier ID = ContinuityClient.asId("render_util");
-		public static final List<Identifier> DEPENDENCIES = List.of(ResourceReloadListenerKeys.MODELS);
+		public static final List<Identifier> DEPENDENCIES;
+
+		static {
+			DEPENDENCIES = new ArrayList<>();
+			DEPENDENCIES.add(ResourceReloadListenerKeys.MODELS);
+		}
+
 		private static final ReloadListener INSTANCE = new ReloadListener();
 
 		@ApiStatus.Internal

@@ -88,10 +88,18 @@ public class OverlayPropertiesSection {
 
 		String layerStr1 = layerStr.trim().toLowerCase(Locale.ROOT);
 		switch (layerStr1) {
-			case "cutout_mipped" -> layer = BlendMode.CUTOUT_MIPPED;
-			case "cutout" -> layer = BlendMode.CUTOUT;
-			case "translucent" -> layer = BlendMode.TRANSLUCENT;
-			default -> ContinuityClient.LOGGER.warn("Unknown 'layer' value '" + layerStr + " in file '" + id + "' in pack '" + packName + "'");
+			case "cutout_mipped":
+				layer = BlendMode.CUTOUT_MIPPED;
+				break;
+			case "cutout":
+				layer = BlendMode.CUTOUT;
+				break;
+			case "translucent":
+				layer = BlendMode.TRANSLUCENT;
+				break;
+			default:
+				ContinuityClient.LOGGER.warn("Unknown 'layer' value '" + layerStr + " in file '" + id + "' in pack '" + packName + "'");
+				break;
 		}
 	}
 
