@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.util.Collections;
 import java.util.Map;
 
+import me.pepperbell.continuity.client.util.JsonParserUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;;
@@ -15,7 +16,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import com.google.gson.JsonParser;
+//import com.google.gson.JsonParser;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
@@ -48,7 +49,7 @@ public class ContinuityConfig {
 	public void load() {
 		if (file.exists()) {
 			try (FileReader reader = new FileReader(file)) {
-				fromJson(JsonParser.parseReader(reader));
+				fromJson(JsonParserUtil.parseReader(reader));
 			} catch (Exception e) {
 				LOGGER.error("Could not load config from file '" + file.getAbsolutePath() + "'", e);
 			}
