@@ -117,7 +117,7 @@ public final class RenderUtil {
 
 		@Override
 		public void reload(ResourceManager manager) {
-			blockAtlasSpriteFinder = SpriteFinder.get(MODEL_MANAGER.getAtlas(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE));
+			blockAtlasSpriteFinder = SpriteFinder.get(MODEL_MANAGER.method_24153(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE));
 		}
 
 		@Override

@@ -1,8 +1,5 @@
 package me.pepperbell.continuity.client;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import me.pepperbell.continuity.api.client.CTMLoader;
 import me.pepperbell.continuity.api.client.CTMLoaderRegistry;
 import me.pepperbell.continuity.api.client.CTMProperties;
@@ -46,10 +43,13 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class ContinuityClient implements ClientModInitializer {
 	public static final String ID = "continuity";
 	public static final String NAME = "Continuity";
-	public static final Logger LOGGER = LoggerFactory.getLogger(NAME);
+	public static final Logger LOGGER = LogManager.getLogger(NAME);
 
 	@Override
 	public void onInitializeClient() {

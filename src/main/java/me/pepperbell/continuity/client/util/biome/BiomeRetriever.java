@@ -60,7 +60,7 @@ public final class BiomeRetriever {
 	@Nullable
 	private static Biome getBiomeByWorldView(BlockRenderView blockView, BlockPos pos) {
 		if (blockView instanceof WorldView worldView) {
-			return worldView.getBiome(pos).value();
+			return worldView.getBiome(pos);
 		}
 		return null;
 	}
@@ -77,7 +77,7 @@ public final class BiomeRetriever {
 	@Nullable
 	private static Biome getBiomeByWorldSlice(BlockRenderView blockView, BlockPos pos) {
 		if (blockView instanceof WorldSlice worldSlice) {
-			return worldSlice.getBiomeAccess().getBiome(pos).value();
+			return worldSlice.getBiomeAccess().getBiome(pos);
 		}
 		return getBiomeByWorldView(blockView, pos);
 	}

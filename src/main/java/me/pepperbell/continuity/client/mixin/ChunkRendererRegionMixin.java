@@ -1,5 +1,6 @@
 package me.pepperbell.continuity.client.mixin;
 
+import net.minecraft.util.registry.RegistryKey;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -7,7 +8,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import me.pepperbell.continuity.client.mixinterface.ChunkRendererRegionExtension;
 import net.minecraft.client.render.chunk.ChunkRendererRegion;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.RegistryEntry;
+//import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
@@ -18,7 +19,7 @@ public class ChunkRendererRegionMixin implements ChunkRendererRegionExtension {
 	protected World world;
 
 	@Override
-	public RegistryEntry<Biome> continuity$getBiome(BlockPos pos) {
+	public RegistryKey<Biome> continuity$getBiome(BlockPos pos) {
 		return world.getBiome(pos);
 	}
 }

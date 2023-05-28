@@ -234,7 +234,7 @@ public final class PropertiesParsingHelper {
 	}
 
 	public static boolean parseOptifineOnly(Properties properties, Identifier fileLocation) {
-		if (!fileLocation.getNamespace().equals(Identifier.DEFAULT_NAMESPACE)) {
+		if (!fileLocation.getNamespace().equals("minectaft")) {
 			return false;
 		}
 
