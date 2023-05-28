@@ -33,6 +33,7 @@ import me.pepperbell.continuity.client.properties.overlay.StandardConnectingOver
 import me.pepperbell.continuity.client.properties.overlay.StandardOverlayCTMProperties;
 import me.pepperbell.continuity.client.resource.CustomBlockLayers;
 import me.pepperbell.continuity.client.resource.EmissiveIdProvider;
+import me.pepperbell.continuity.client.resource.LifecycledResourceManager;
 import me.pepperbell.continuity.client.util.RenderUtil;
 import me.pepperbell.continuity.client.util.biome.BiomeHolderManager;
 import me.pepperbell.continuity.client.util.biome.BiomeRetriever;

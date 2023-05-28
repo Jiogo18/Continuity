@@ -13,7 +13,6 @@
     "ModelLoaderMixin",
     "NamespaceResourceManagerMixin",
     "PistonBlockEntityRendererMixin",
-    "ReloadableResourceManagerImplAccessor",
     "RenderLayersMixin",
     "SpriteAtlasTextureDataMixin",
     "SpriteAtlasTextureMixin",
