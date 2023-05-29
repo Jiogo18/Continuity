@@ -7,7 +7,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectList;
-import me.pepperbell.continuity.client.mixin.ReloadableResourceManagerImplAccessor;
+//import me.pepperbell.continuity.client.mixin.ReloadableResourceManagerImplAccessor;
 import me.pepperbell.continuity.client.mixinterface.ReloadableResourceManagerImplExtension;
 import me.pepperbell.continuity.client.util.BooleanState;
 import net.minecraft.client.MinecraftClient;
@@ -42,10 +42,12 @@ public class ResourceRedirectHandler {
 
 	@Nullable
 	public static ResourceRedirectHandler get(ResourceManager resourceManager) {
+		/*
 		if (resourceManager instanceof ReloadableResourceManagerImplAccessor) {
 			ReloadableResourceManagerImplAccessor accessor = (ReloadableResourceManagerImplAccessor) resourceManager;
 			resourceManager = accessor.getActiveManager();
 		}
+		 */
 		if (resourceManager instanceof ReloadableResourceManagerImplExtension) {
 			ReloadableResourceManagerImplExtension extension = (ReloadableResourceManagerImplExtension) resourceManager;
 			return extension.continuity$getRedirectHandler();
