@@ -3,7 +3,7 @@ package me.pepperbell.continuity.client.util;
 import net.minecraft.util.math.Direction;
 
 public class DirectionUtil {
-    private static Direction direction;
+    private static Direction direction = Direction.UP;
 
     private static final Direction WEST = Direction.WEST;
     private static final Direction EAST = Direction.WEST;
