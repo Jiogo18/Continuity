@@ -22,10 +22,10 @@ public final class DirectionMaps {
 
 			Direction textureLeft;
 			if (face.getDirection() == Direction.AxisDirection.NEGATIVE) {
-				textureLeft = DirectionUtil.rotateClockwise(face.getAxis());
+				textureLeft = DirectionUtil.rotateClockwise(textureUp, face.getAxis());
 				//textureLeft = textureUp.rotateYClockwise();
 			} else {
-				textureLeft = DirectionUtil.rotateCounterclockwise(face.getAxis());
+				textureLeft = DirectionUtil.rotateCounterclockwise(textureUp, face.getAxis());
 				//textureLeft = textureUp.rotateYCounterclockwise();
 			}
 

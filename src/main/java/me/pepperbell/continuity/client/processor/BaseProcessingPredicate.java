@@ -55,9 +55,9 @@ public class BaseProcessingPredicate implements ProcessingPredicate {
  			if (state.contains(Properties.AXIS)) {
  				Direction.Axis axis = state.get(Properties.AXIS);
  				if (axis == Direction.Axis.X) {
- 					face = DirectionUtil.rotateClockwise(Direction.Axis.Z);
+					face = DirectionUtil.rotateClockwise(face, Direction.Axis.Z);
 				} else if (axis == Direction.Axis.Z) {
-					face = DirectionUtil.rotateCounterclockwise(Direction.Axis.X);
+					face = DirectionUtil.rotateCounterclockwise(face, Direction.Axis.X);
 				}
 			}
 			if (!faces.contains(face)) {
