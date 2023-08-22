@@ -18,3 +18,17 @@ A Forge version of Continuity will not be made for the following reasons.
 [Modrinth Page](https://modrinth.com/mod/continuity)
 
 [Discord](https://discord.gg/7rnTYXu)
+
+## Fork history
+
+Goal: Make Continuity work on fabric 1.16.5
+
+Forked from [Continuity 1.18](https://github.com/PepperCode1/Continuity/tree/1.18/dev)
+
+### Forked by ThinkingStudios
+
+Downgraded to [1.16.5 by TexBlock](https://github.com/ThinkingStudios/Continuity/commits/1.16.5/dev)
+
+### Forked by Jiogo18
+
+Fix 1.16.5 issue by [Jiogo18](https://github.com/Jiogo18/Continuity/commits)

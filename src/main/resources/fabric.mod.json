@@ -4,9 +4,11 @@
   "version": "${version}",
 
   "name": "Continuity",
-  "description": "Continuity is a Fabric mod built around modern APIs to allow for the most efficient connected textures experience possible. It is designed to provide full Optifine parity for all resource packs that use the Optifine CTM format. Continuity also supports Optifine-format emissive textures for block and item models.",
+  "description": "Continuity is a Fabric mod built around modern APIs to allow for the most efficient connected textures experience possible. It is designed to provide full Optifine parity for all resource packs that use the Optifine CTM format. Continuity also supports Optifine-format emissive textures for block and item models.\n\nThis is a fork of the original Continuity mod to support fabric 1.16.5.",
   "authors": [
-    "Pepper_Bell"
+    "Pepper_Bell",
+    "TexBlock",
+    "Jiogo18"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/continuity",
